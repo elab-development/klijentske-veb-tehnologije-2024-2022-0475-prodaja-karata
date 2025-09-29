@@ -18,6 +18,7 @@ import Register from "./components/Register";
 import Newsletter from "./components/Newsletter";
 import { AuthProvider } from "./contexts/AuthContext";
 import Profile from "./components/Profile";
+import Kontakt from "./components/Kontakt";
 
 function App() {
   const [cartNum, setCartNum] = useState(0);
@@ -110,6 +111,7 @@ function App() {
           path="profile"
           element={<Profile cartProducts={getCartProducts()} />}
         />
+        <Route path="kontakt" element={<Kontakt />} />
       </Route>,
     ])
   );
