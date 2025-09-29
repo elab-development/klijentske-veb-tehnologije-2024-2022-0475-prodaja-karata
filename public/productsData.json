@@ -1,0 +1,39 @@
+{
+  "products": [
+    {
+      "id": 1,
+      "name": "KK Crvena Zvezda VS Real Madrid (EL Round 6)",
+      "description": "Utakmica u okviru 6. kola Evrolige Crvena Zvezda vs Real Madrid",
+      "amount": 0,
+      "image": "/images/zvezda.png"
+    },
+    {
+      "id": 2,
+      "name": "Novogodisnji koncert",
+      "description": "Koncert Senidah, Beogradska Arena, 31.12",
+      "amount": 0,
+      "image": "/images/koncert.jpg"
+    },
+    {
+      "id": 3,
+      "name": "Stand up nastup",
+      "description": "Teatar na Brdu 12.12.2025",
+      "amount": 0,
+      "image": "/images/standup.jpg"
+    },
+    {
+      "id": 4,
+      "name": "Pozorišna predstava",
+      "description": "Predstava 'Hamlet' u Narodnom pozorištu, 15.12.",
+      "amount": 0,
+      "image": "/images/teatar.jpg"
+    },
+    {
+      "id": 5,
+      "name": "KK Partizan vs Olympiacos",
+      "description": "Utakmica u okviru 6. kola Evrolige, 16.11 20:00h",
+      "amount": 0,
+      "image": "/images/partizan.png"
+    }
+  ]
+}
