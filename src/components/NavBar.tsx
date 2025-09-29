@@ -52,6 +52,9 @@ const NavBar: React.FC<NavBarProps> = ({ cartNum }) => {
           <Link to="/register" className="nav-btn">
             Register
           </Link>
+          <Link to="/kontakt" className="nav-btn">
+            Kontakt
+          </Link>
         </div>
       </div>
 
