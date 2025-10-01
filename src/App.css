@@ -632,6 +632,43 @@ main {
   background-color: #1e40af;
 }
 
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  margin-top: 20px;
+  flex-wrap: wrap;
+}
+
+.pagination button {
+  padding: 8px 14px;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  background-color: #ffffff;
+  color: #333;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+}
+
+.pagination button:hover {
+  background-color: #e0f0ff;
+  border-color: #3b82f6;
+}
+
+.pagination button.active {
+  background-color: #3b82f6;
+  color: white;
+  border-color: #3b82f6;
+}
+
+.pagination button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+
 
 
 

@@ -5,8 +5,8 @@ import { useNavigate } from "react-router-dom";
 const Login: React.FC = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const { login } = useAuth(); // AuthContext
-  const navigate = useNavigate(); // za redirect
+  const { login } = useAuth();
+  const navigate = useNavigate();
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
