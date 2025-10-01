@@ -19,6 +19,7 @@ import Newsletter from "./components/Newsletter";
 import { AuthProvider } from "./contexts/AuthContext";
 import Profile from "./components/Profile";
 import Kontakt from "./components/Kontakt";
+import EventDetails from "./components/EventDetails";
 
 function App() {
   const [cartNum, setCartNum] = useState(0);
@@ -112,6 +113,7 @@ function App() {
           element={<Profile cartProducts={getCartProducts()} />}
         />
         <Route path="kontakt" element={<Kontakt />} />
+        <Route path="/event/:id" element={<EventDetails onAdd={addToCart} />} />
       </Route>,
     ])
   );

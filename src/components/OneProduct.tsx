@@ -1,7 +1,7 @@
 import React from "react";
 import { ImPlus, ImMinus } from "react-icons/im";
 import { Product } from "../models/product";
-import { useLocation } from "react-router-dom";
+import { useLocation, Link } from "react-router-dom";
 
 interface OneProductProps {
   product: Product;
@@ -21,9 +21,13 @@ const OneProduct: React.FC<OneProductProps> = ({
 
   return (
     <div className={inCart === 1 ? "card" : "card-cart"} style={design}>
-      <img className="card-img-top" src={product.image} alt={product.name} />
-      <div className="card-body">
+      {/* Klikabilni deo (slika + naslov) vodi na detalje događaja */}
+      <Link to={`/event/${product.id}`}>
+        <img className="card-img-top" src={product.image} alt={product.name} />
         <h3 className="card-title">{product.name}</h3>
+      </Link>
+
+      <div className="card-body">
         <p className="card-text">{product.description}</p>
 
         {location.pathname === "/cart" || inCart > 1 ? (
