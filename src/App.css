@@ -262,7 +262,7 @@ a {
 
 .newsletter-container {
   width: 280px;
-  background-color: #f2f2f2;
+  background-color: #E0F7FF;
   padding: 15px 20px;
   border-radius: 10px;
   box-shadow: 0 4px 12px rgba(0,0,0,0.2);
@@ -496,6 +496,116 @@ main {
 
 .kontakt-button:hover {
   background-color: #2563eb;
+}
+
+.event-details-card {
+  max-width: 700px;
+  margin: 2rem auto;
+  background-color: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+  padding: 2rem;
+  transition: transform 0.2s;
+}
+
+.event-details-card:hover {
+  transform: translateY(-5px);
+}
+
+.event-details-card img {
+  width: 100%;
+  max-height: 400px;
+  object-fit: contain;
+  border-radius: 8px;
+  margin-bottom: 1.5rem;
+}
+
+.event-details-card h1 {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  color: #111827; /* tamno sivkasta boja */
+}
+
+.event-details-card p {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #4b5563; /* srednje sivkasta boja */
+  margin-bottom: 1.5rem;
+}
+
+.event-details-card button {
+  padding: 0.75rem 1.5rem;
+  background-color: #3b82f6; 
+  color: #ffffff;
+  font-weight: 600;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.2s, transform 0.2s;
+}
+
+.event-details-card button:hover {
+  background-color: #2563eb; 
+  transform: translateY(-2px);
+}
+
+/* Responsive za manje ekrane */
+@media (max-width: 640px) {
+  .event-details-card {
+    padding: 1rem;
+    margin: 1rem;
+  }
+
+  .event-details-card h1 {
+    font-size: 1.5rem;
+  }
+
+  .event-details-card p {
+    font-size: 0.95rem;
+  }
+
+  .event-details-card img {
+    max-height: 250px;
+  }
+}
+
+/* Dodatne informacije na EventDetails stranici */
+.event-info {
+  margin-top: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem; 
+  font-size: 1rem;
+  color: #4b5563; 
+}
+
+.event-info p {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.event-info p::before {
+  content: "📅"; 
+}
+
+.event-info p:nth-child(2)::before {
+  content: "⏰";
+}
+
+.event-info p:nth-child(3)::before {
+  content: "📍";
+}
+
+.event-info p:nth-child(4)::before {
+  content: "💰";
+}
+
+@media (max-width: 640px) {
+  .event-info {
+    font-size: 0.95rem;
+  }
 }
 
 

@@ -5,35 +5,55 @@
       "name": "KK Crvena Zvezda VS Real Madrid (EL Round 6)",
       "description": "Utakmica u okviru 6. kola Evrolige Crvena Zvezda vs Real Madrid",
       "amount": 0,
-      "image": "/images/zvezda.png"
+      "image": "/images/zvezda.png",
+      "date": "05.11.2025",
+      "time": "20:30",
+      "price": 2500,
+      "location": "Beogradska Arena, Beograd"
     },
     {
       "id": 2,
-      "name": "Novogodisnji koncert",
+      "name": "Novogodišnji koncert",
       "description": "Koncert Senidah, Beogradska Arena, 31.12",
       "amount": 0,
-      "image": "/images/koncert.jpg"
+      "image": "/images/koncert.jpg",
+      "date": "31.12.2025",
+      "time": "21:00",
+      "price": 4000,
+      "location": "Beogradska Arena, Beograd"
     },
     {
       "id": 3,
       "name": "Stand up nastup",
-      "description": "Teatar na Brdu 12.12.2025",
+      "description": "Teatar na Brdu",
       "amount": 0,
-      "image": "/images/standup.jpg"
+      "image": "/images/standup.jpg",
+      "date": "12.12.2025",
+      "time": "19:00",
+      "price": 1500,
+      "location": "Teatar na Brdu, Beograd"
     },
     {
       "id": 4,
       "name": "Pozorišna predstava",
-      "description": "Predstava 'Hamlet' u Narodnom pozorištu, 15.12.",
+      "description": "Predstava 'Hamlet' u Narodnom pozorištu",
       "amount": 0,
-      "image": "/images/teatar.jpg"
+      "image": "/images/teatar.jpg",
+      "date": "15.12.2025",
+      "time": "18:30",
+      "price": 2000,
+      "location": "Narodno pozorište, Beograd"
     },
     {
       "id": 5,
       "name": "KK Partizan vs Olympiacos",
-      "description": "Utakmica u okviru 6. kola Evrolige, 16.11 20:00h",
+      "description": "Utakmica u okviru 6. kola Evrolige",
       "amount": 0,
-      "image": "/images/partizan.png"
+      "image": "/images/partizan.png",
+      "date": "16.11.2025",
+      "time": "20:00",
+      "price": 3000,
+      "location": "Aleksandar Nikolić Hall, Beograd"
     }
   ]
 }

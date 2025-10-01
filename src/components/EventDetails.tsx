@@ -37,21 +37,35 @@ const EventDetails: React.FC<EventDetailsProps> = ({ onAdd }) => {
   }
 
   return (
-    <div className="p-6 max-w-2xl mx-auto bg-white rounded-lg shadow-lg">
-      <img
-        src={event.image || "/images/placeholder.png"}
-        alt={event.name}
-        className="w-full max-h-80 object-contain rounded"
-      />
-      <h1 className="text-2xl font-bold mt-4">{event.name}</h1>
-      <p className="mt-2 text-gray-700">{event.description}</p>
+    <div className="event-details-card">
+      <img src={event.image || "/images/placeholder.png"} alt={event.name} />
+      <h1>{event.name}</h1>
+      <p>{event.description}</p>
 
-      <button
-        onClick={() => onAdd(event.id)}
-        className="mt-4 px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700 transition"
-      >
-        Dodaj u korpu
-      </button>
+      <div className="event-info">
+        {event.date && (
+          <p>
+            <strong>Datum:</strong> {event.date}
+          </p>
+        )}
+        {event.time && (
+          <p>
+            <strong>Vreme:</strong> {event.time}
+          </p>
+        )}
+        {event.location && (
+          <p>
+            <strong>Lokacija:</strong> {event.location}
+          </p>
+        )}
+        {event.price !== undefined && (
+          <p>
+            <strong>Cena karte:</strong> {event.price} RSD
+          </p>
+        )}
+      </div>
+
+      <button onClick={() => onAdd(event.id)}>Dodaj u korpu</button>
     </div>
   );
 };
