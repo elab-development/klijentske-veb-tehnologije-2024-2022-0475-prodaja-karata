@@ -34,13 +34,16 @@ const OneProduct: React.FC<OneProductProps> = ({
           <h3>Amount: {inCart}</h3>
         ) : (
           <>
-            <a className="btn" onClick={() => onAdd(product.id)}>
+            <button className="ticket-button" onClick={() => onAdd(product.id)}>
               <ImPlus />
-            </a>
+            </button>
             {onRemove && (
-              <a className="btn" onClick={() => onRemove(product.id)}>
+              <button
+                className="ticket-button"
+                onClick={() => onRemove(product.id)}
+              >
                 <ImMinus />
-              </a>
+              </button>
             )}
           </>
         )}

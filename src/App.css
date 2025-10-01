@@ -608,6 +608,31 @@ main {
   }
 }
 
+.ticket-button {
+  background-color: #3b82f6;
+  color: #ffffff;
+  border: none;
+  border-radius: 8px;
+  font-size: 15px;
+  padding: 8px 14px;
+  margin: 5px 3px;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.15);
+}
+
+.ticket-button:hover {
+  background-color: #2563eb;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+.ticket-button:active {
+  transform: scale(0.95);
+  background-color: #1e40af;
+}
+
+
 
 
 
