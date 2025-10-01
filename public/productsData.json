@@ -54,6 +54,17 @@
       "time": "20:00",
       "price": 3000,
       "location": "Aleksandar Nikolić Hall, Beograd"
+    },
+    {
+      "id": 6,
+      "name": "Sajam automobila",
+      "description": "57. medjunarodni sajam automobila",
+      "amount": 0,
+      "image": "/images/sajam.jpg",
+      "date": "11.11.2025",
+      "time": "12:00",
+      "price": 500,
+      "location": "Beogradski sajam"
     }
   ]
 }
