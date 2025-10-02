@@ -1,6 +1,16 @@
-import React from "react";
+import React, { useState } from "react";
 import { useAuth } from "../contexts/AuthContext";
 import { Product } from "../models/product";
+import {
+  FacebookShareButton,
+  TwitterShareButton,
+  WhatsappShareButton,
+  LinkedinShareButton,
+  FacebookIcon,
+  TwitterIcon,
+  WhatsappIcon,
+  LinkedinIcon,
+} from "react-share";
 
 interface ProfileProps {
   cartProducts: Product[];
@@ -8,15 +18,18 @@ interface ProfileProps {
 
 const Profile: React.FC<ProfileProps> = ({ cartProducts }) => {
   const { isLoggedIn, logout, userName, userEmail } = useAuth();
+  const [ratings, setRatings] = useState<{ [key: number]: number }>({});
+
+  const handleRating = (eventId: number, rating: number) => {
+    setRatings({ ...ratings, [eventId]: rating });
+  };
 
   if (!isLoggedIn) {
     return (
-      <div className="p-6 text-center">
+      <div className="profile-not-logged">
         <h1 className="text-3xl font-bold mb-4">Profil</h1>
-        <p className="text-red-600 mb-2">Niste ulogovani.</p>
-        <p className="text-gray-700">
-          Molimo prijavite se da biste videli svoj profil.
-        </p>
+        <p>Niste ulogovani.</p>
+        <p>Molimo prijavite se da biste videli svoj profil.</p>
       </div>
     );
   }
@@ -38,6 +51,7 @@ const Profile: React.FC<ProfileProps> = ({ cartProducts }) => {
         </p>
       </div>
 
+      {/* Kupljeni proizvodi */}
       <div className="mb-6">
         <h2>Moje karte / proizvodi</h2>
         {cartProducts.length === 0 ? (
@@ -46,11 +60,73 @@ const Profile: React.FC<ProfileProps> = ({ cartProducts }) => {
           <ul>
             {cartProducts.map((product) => (
               <li key={product.id}>
-                {product.name} - {product.amount}{" "}
-                {product.amount === 1 ? "karta" : "karte"}
+                {product.name} ({product.date} {product.time}) –{" "}
+                {product.amount} {product.amount === 1 ? "karta" : "karte"}
               </li>
             ))}
           </ul>
+        )}
+      </div>
+
+      {/* Događaji koji se mogu oceniti i podeliti */}
+      <div className="mb-6">
+        <h2>Moji događaji</h2>
+        {cartProducts.length === 0 ? (
+          <p>Nemate događaja za ocenjivanje.</p>
+        ) : (
+          <div className="grid md:grid-cols-2 gap-4">
+            {cartProducts.map((event) => (
+              <div key={event.id} className="event-card">
+                <img src={event.image} alt={event.name} />
+                <h3>{event.name}</h3>
+                <p>
+                  {event.date} {event.time} – {event.location}
+                </p>
+
+                {/* Rating */}
+                <div className="rating-stars">
+                  {[1, 2, 3, 4, 5].map((star) => (
+                    <span
+                      key={star}
+                      onClick={() => handleRating(event.id, star)}
+                      style={{
+                        color:
+                          ratings[event.id] && ratings[event.id] >= star
+                            ? "gold"
+                            : "gray",
+                      }}
+                    >
+                      ★
+                    </span>
+                  ))}
+                </div>
+
+                {/* Share dugmići */}
+                <div className="share-buttons">
+                  <FacebookShareButton
+                    url={`https://mojsajt.rs/events/${event.id}`}
+                  >
+                    <FacebookIcon size={32} round />
+                  </FacebookShareButton>
+                  <TwitterShareButton
+                    url={`https://mojsajt.rs/events/${event.id}`}
+                  >
+                    <TwitterIcon size={32} round />
+                  </TwitterShareButton>
+                  <WhatsappShareButton
+                    url={`https://mojsajt.rs/events/${event.id}`}
+                  >
+                    <WhatsappIcon size={32} round />
+                  </WhatsappShareButton>
+                  <LinkedinShareButton
+                    url={`https://mojsajt.rs/events/${event.id}`}
+                  >
+                    <LinkedinIcon size={32} round />
+                  </LinkedinShareButton>
+                </div>
+              </div>
+            ))}
+          </div>
         )}
       </div>
 
