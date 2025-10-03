@@ -29,20 +29,50 @@ function App() {
     const fetchData = async () => {
       const response = await axios.get("/productsData.json");
       const productsArray: Product[] = response.data.products.map(
-        (product: any) => {
-          return new Product(
+        (product: any) =>
+          new Product(
             product.id,
             product.name,
             product.description,
             product.amount,
             product.image
-          );
-        }
+          )
       );
-      setProducts(productsArray);
+
+      const savedCart = localStorage.getItem("cart");
+      if (savedCart) {
+        const savedProducts = JSON.parse(savedCart);
+        const mergedProducts = productsArray.map((p) => {
+          const saved = savedProducts.find((sp: any) => sp.id === p.id);
+          if (saved) {
+            return new Product(
+              p.id,
+              p.name,
+              p.description,
+              saved.amount,
+              p.image
+            );
+          }
+          return p;
+        });
+        setProducts(mergedProducts);
+
+        const totalAmount = mergedProducts.reduce(
+          (acc, p) => acc + p.amount,
+          0
+        );
+        setCartNum(totalAmount);
+      } else {
+        setProducts(productsArray);
+      }
     };
     fetchData();
   }, []);
+
+  const updateCartStorage = (updatedProducts: Product[]) => {
+    const cartProducts = updatedProducts.filter((p) => p.amount > 0);
+    localStorage.setItem("cart", JSON.stringify(cartProducts));
+  };
 
   const addToCart = (id: number) => {
     const newProducts = products.map((product) => {
@@ -59,6 +89,7 @@ function App() {
     });
     setProducts(newProducts);
     setCartNum(cartNum + 1);
+    updateCartStorage(newProducts);
   };
 
   const removeFromCart = (id: number) => {
@@ -76,10 +107,20 @@ function App() {
     });
     setProducts(newProducts);
     setCartNum(Math.max(cartNum - 1, 0));
+    updateCartStorage(newProducts);
   };
 
   const getCartProducts = () => {
     return products.filter((p) => p.amount > 0);
+  };
+
+  const clearCart = () => {
+    const newProducts = products.map(
+      (p) => new Product(p.id, p.name, p.description, 0, p.image)
+    );
+    setProducts(newProducts);
+    setCartNum(0);
+    localStorage.removeItem("cart");
   };
 
   let router = createBrowserRouter(
@@ -103,6 +144,7 @@ function App() {
               allproducts={getCartProducts()}
               onAdd={addToCart}
               onRemove={removeFromCart}
+              onClearCart={clearCart}
             />
           }
         />

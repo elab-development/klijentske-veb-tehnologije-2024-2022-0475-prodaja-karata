@@ -581,13 +581,13 @@ main {
   font-size: 2rem;
   font-weight: 700;
   margin-bottom: 0.5rem;
-  color: #111827; /* tamno sivkasta boja */
+  color: #111827; 
 }
 
 .event-details-card p {
   font-size: 1rem;
   line-height: 1.6;
-  color: #4b5563; /* srednje sivkasta boja */
+  color: #4b5563; 
   margin-bottom: 1.5rem;
 }
 
@@ -627,7 +627,6 @@ main {
   }
 }
 
-/* Dodatne informacije na EventDetails stranici */
 .event-info {
   margin-top: 1.5rem;
   display: flex;
@@ -724,6 +723,46 @@ main {
   opacity: 0.5;
   cursor: not-allowed;
 }
+
+.btn-clear {
+  background-color: #dc3545;   
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 6px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.btn-clear:hover {
+  background-color: #b02a37;   
+  transform: scale(1.05);
+}
+
+.btn-checkout {
+  background-color: #28a745;   
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 6px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.btn-checkout:hover {
+  background-color: #218838;   
+  transform: scale(1.05);
+}
+
+.cart-container .btn-clear,
+.cart-container .btn-checkout {
+  margin-right: 10px;
+}
+
 
 
 
