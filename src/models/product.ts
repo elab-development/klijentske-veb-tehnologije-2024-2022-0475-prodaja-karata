@@ -4,10 +4,10 @@ export class Product {
   description: string;
   amount: number;
   image: string;
-  date?: string;      // npr. "05.10.2025"
-  time?: string;      // npr. "20:30"
-  price?: number;     // npr. 2500
-  location?: string;  // npr. "Štark Arena, Beograd"
+  date?: string;      
+  time?: string;      
+  price?: number;     
+  location?: string;
 
   constructor(
     id: number,

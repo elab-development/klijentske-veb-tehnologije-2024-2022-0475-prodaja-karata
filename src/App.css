@@ -105,7 +105,7 @@ body {
 .products-container-title {
   width: 100%;            
   display: flex;           
-  justify-content: center; 
+  justify-content: center;
 }
 
 .products-title {
@@ -763,9 +763,31 @@ main {
   margin-right: 10px;
 }
 
+.price-filter-select {
+  border: 1px solid #93c5fd;
+  border-radius: 6px;
+  padding: 4px 8px;
+  font-size: 0.9rem;
+  background-color: white;
+  color: #1d4ed8;
+  cursor: pointer;
+}
 
+.price-filter-select:hover {
+  border-color: #3b82f6;
+}
 
+.price-filter label {
+  font-size: 0.9rem;
+}
 
+.price-filter {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  position: relative;
+  left: 8cm;
+}
 
 
 

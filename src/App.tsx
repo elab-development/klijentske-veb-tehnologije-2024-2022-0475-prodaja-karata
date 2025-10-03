@@ -24,20 +24,47 @@ import EventDetails from "./components/EventDetails";
 function App() {
   const [cartNum, setCartNum] = useState(0);
   const [products, setProducts] = useState<Product[]>([]);
+  const [priceFilter, setPriceFilter] = useState<string>("All");
 
   useEffect(() => {
     const fetchData = async () => {
       const response = await axios.get("/productsData.json");
-      const productsArray: Product[] = response.data.products.map(
+      let productsArray: Product[] = response.data.products.map(
         (product: any) =>
           new Product(
             product.id,
             product.name,
             product.description,
             product.amount,
-            product.image
+            product.image,
+            product.date,
+            product.time,
+            product.price,
+            product.location
           )
       );
+
+      const sportsRes = await axios.get(
+        "https://www.thesportsdb.com/api/v1/json/3/eventsnextleague.php?id=4387"
+      );
+
+      if (sportsRes.data.events) {
+        const sportsEvents: Product[] = sportsRes.data.events.slice(0, 3).map(
+          (event: any, index: number) =>
+            new Product(
+              1000 + index,
+              event.strEvent,
+              `${event.dateEvent} @ ${event.strTime} (${event.strLeague})`,
+              0,
+              event.strThumb || "/images/default.png",
+              event.dateEvent,
+              event.strTime,
+              Math.floor(Math.random() * 4000) + 500 // random cena
+            )
+        );
+
+        productsArray = [...productsArray, ...sportsEvents];
+      }
 
       const savedCart = localStorage.getItem("cart");
       if (savedCart) {
@@ -50,7 +77,11 @@ function App() {
               p.name,
               p.description,
               saved.amount,
-              p.image
+              p.image,
+              p.date,
+              p.time,
+              p.price,
+              p.location
             );
           }
           return p;
@@ -82,7 +113,11 @@ function App() {
           product.name,
           product.description,
           product.amount + 1,
-          product.image
+          product.image,
+          product.date,
+          product.time,
+          product.price,
+          product.location
         );
       }
       return product;
@@ -100,7 +135,11 @@ function App() {
           product.name,
           product.description,
           product.amount - 1,
-          product.image
+          product.image,
+          product.date,
+          product.time,
+          product.price,
+          product.location
         );
       }
       return product;
@@ -116,12 +155,37 @@ function App() {
 
   const clearCart = () => {
     const newProducts = products.map(
-      (p) => new Product(p.id, p.name, p.description, 0, p.image)
+      (p) =>
+        new Product(
+          p.id,
+          p.name,
+          p.description,
+          0,
+          p.image,
+          p.date,
+          p.time,
+          p.price,
+          p.location
+        )
     );
     setProducts(newProducts);
     setCartNum(0);
     localStorage.removeItem("cart");
   };
+
+  const filteredProducts = products.filter((p) => {
+    if (!p.price) return true;
+    switch (priceFilter) {
+      case "0-2000":
+        return p.price <= 2000;
+      case "2000-3000":
+        return p.price > 2000 && p.price <= 3000;
+      case "3000+":
+        return p.price > 3000;
+      default:
+        return true;
+    }
+  });
 
   let router = createBrowserRouter(
     createRoutesFromElements([
@@ -130,9 +194,11 @@ function App() {
           path="/"
           element={
             <Products
-              products={products}
+              products={filteredProducts}
               onAdd={addToCart}
               onRemove={removeFromCart}
+              priceFilter={priceFilter}
+              setPriceFilter={setPriceFilter}
             />
           }
         />

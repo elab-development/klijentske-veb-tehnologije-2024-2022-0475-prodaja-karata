@@ -6,9 +6,17 @@ interface ProductsProps {
   products: Product[];
   onAdd: (id: number) => void;
   onRemove: (id: number) => void;
+  priceFilter: string;
+  setPriceFilter: React.Dispatch<React.SetStateAction<string>>;
 }
 
-const Products: React.FC<ProductsProps> = ({ products, onAdd, onRemove }) => {
+const Products: React.FC<ProductsProps> = ({
+  products,
+  onAdd,
+  onRemove,
+  priceFilter,
+  setPriceFilter,
+}) => {
   const [currentPage, setCurrentPage] = useState(1);
   const itemsPerPage = 5;
 
@@ -19,10 +27,29 @@ const Products: React.FC<ProductsProps> = ({ products, onAdd, onRemove }) => {
 
   return (
     <div className="bg-light-blue-custom py-24 w-full flex flex-col gap-10">
-      <div className="products-container-title">
+      <div className="products-container-title flex justify-between items-center">
         <h2 className="products-title font-sans uppercase text-4xl font-extrabold text-blue-800 tracking-wider">
           AKTUELNA PONUDA
         </h2>
+
+        <div className="price-filter flex items-center gap-2">
+          <label className="font-semibold text-blue-700">
+            Filtriraj po ceni:
+          </label>
+          <select
+            value={priceFilter}
+            onChange={(e) => {
+              setPriceFilter(e.target.value);
+              setCurrentPage(1);
+            }}
+            className="price-filter-select"
+          >
+            <option value="All">Sve</option>
+            <option value="0-2000">0 - 2000 RSD</option>
+            <option value="2000-3000">2000 - 3000 RSD</option>
+            <option value="3000+">3000 RSD +</option>
+          </select>
+        </div>
       </div>
 
       {/* Proizvodi */}
