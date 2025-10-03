@@ -49,19 +49,21 @@ function App() {
       );
 
       if (sportsRes.data.events) {
-        const sportsEvents: Product[] = sportsRes.data.events.slice(0, 3).map(
-          (event: any, index: number) =>
-            new Product(
-              1000 + index,
-              event.strEvent,
-              `${event.dateEvent} @ ${event.strTime} (${event.strLeague})`,
-              0,
-              event.strThumb || "/images/default.png",
-              event.dateEvent,
-              event.strTime,
-              Math.floor(Math.random() * 4000) + 500 // random cena
-            )
-        );
+        const sportsEvents: Product[] = sportsRes.data.events
+          .slice(0, 3)
+          .map(
+            (event: any, index: number) =>
+              new Product(
+                1000 + index,
+                event.strEvent,
+                `${event.dateEvent} @ ${event.strTime} (${event.strLeague})`,
+                0,
+                event.strThumb || "/images/default.png",
+                event.dateEvent,
+                event.strTime,
+                Math.floor(Math.random() * 4000) + 500
+              )
+          );
 
         productsArray = [...productsArray, ...sportsEvents];
       }
