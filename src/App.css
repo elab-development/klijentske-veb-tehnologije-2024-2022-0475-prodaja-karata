@@ -115,11 +115,11 @@ body {
   border-radius: 12px;
   background-color: #D0E8FF;
   color: #1E3A8A;
-  font-size: 1,8rem;
+  font-size: 1.5rem;
   font-weight: bold;
   text-align: center;
   transition: all 0.3s ease;
-  
+  margin-left: 250px;
 }
 
 .products-title:hover {
@@ -786,7 +786,7 @@ main {
   align-items: center;
   gap: 0.5rem;
   position: relative;
-  left: 8cm;
+  left: 5cm;
 }
 
 
