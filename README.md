@@ -29,8 +29,8 @@ Aplikacija omogućava pregled događaja i kupovinu karata preko web interfejsa.
 
    ```
 
-5. „Nakon ove komande, u terminalu ćete dobiti link koji izgleda ovako: http://localhost:5173
-   . Kliknite na njega i aplikacija će se otvoriti u vašem podrazumevanom pregledaču.“
+5. Nakon ove komande, u terminalu ćete dobiti link koji izgleda ovako: http://localhost:5173
+   . Kliknite na njega i aplikacija će se otvoriti u vašem podrazumevanom pregledaču.
 
 ## Funkcionalnosti projekta
 
