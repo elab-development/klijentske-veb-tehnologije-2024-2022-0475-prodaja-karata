@@ -1,73 +1,57 @@
-# React + TypeScript + Vite
+# Prodaja karata – React aplikacija
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Ovaj projekat je izrađen u okviru predmeta **Klijentske veb tehnologije i skriptni jezici**.  
+Aplikacija omogućava pregled događaja i kupovinu karata preko web interfejsa.
 
-Currently, two official plugins are available:
+## Kako pokrenuti projekat lokalno
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+1. Kloniraj repozitorijum:
+   ```bash
+   git clone https://github.com/elab-development/klijentske-veb-tehnologije-2024-2022-0475-prodaja-karata.git
+   ```
+2. Udji u folder projekta
+   cd klijentske-veb-tehnologije-2024-2022-0475-prodaja-karata
+3. Instaliraj zavisnosti:
+   npm install
+4. Pokreni razvojni server:
+   npm start
+5. Aplikacija će biti dostupna na adresi:
+   http://localhost:3000
 
-## React Compiler
+## Funkcionalnosti projekta
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+Početna stranica (Homepage) – pregled aktuelne ponude događaja
 
-## Expanding the ESLint configuration
+Prikaz događaja – detaljan prikaz događaja (opis, datum, vreme, slika)
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+Dodavanje u korpu – korisnik može dodati događaj u svoju korpu
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+Uklanjanje iz korpe – korisnik može ukloniti događaj iz korpe
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+Isprazni korpu – mogućnost resetovanja svih stavki u korpi
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+Čuvanje korpe nakon osvežavanja stranice – korpa ostaje ista i posle F5
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+Stranica profila – pregled korisničkih podataka
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+Login i registracija – korisnici se mogu registrovati i prijaviti na sistem
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+Kontakt stranica – forma za kontakt sa organizatorom
+
+Event stranica – detalji specifičnih događaja
+
+Responzivan dizajn – prilagođen prikaz za različite uređaje
+
+---
+
+## Tehnologije
+
+React (TypeScript)
+
+Axios – pozivi ka eksternim API-jevima
+
+React Router – navigacija kroz aplikaciju
+
+CSS/Tailwind/Bootstrap – stilizacija
+
+Git & GitHub – verzionisanje koda
