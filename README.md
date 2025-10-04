@@ -16,11 +16,21 @@ Aplikacija omogućava pregled događaja i kupovinu karata preko web interfejsa.
    ```
 
 3. Instaliraj zavisnosti:
+
+   ```bash
    npm install
+
+   ```
+
 4. Pokreni razvojni server:
-   npm start
-5. Aplikacija će biti dostupna na adresi:
-   http://localhost:3000
+
+   ```bash
+   npm run dev
+
+   ```
+
+5. „Nakon ove komande, u terminalu ćete dobiti link koji izgleda ovako: http://localhost:5173
+   . Kliknite na njega i aplikacija će se otvoriti u vašem podrazumevanom pregledaču.“
 
 ## Funkcionalnosti projekta
 
