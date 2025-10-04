@@ -10,7 +10,11 @@ Aplikacija omogućava pregled događaja i kupovinu karata preko web interfejsa.
    git clone https://github.com/elab-development/klijentske-veb-tehnologije-2024-2022-0475-prodaja-karata.git
    ```
 2. Udji u folder projekta
+
+   ```bash
    cd klijentske-veb-tehnologije-2024-2022-0475-prodaja-karata
+   ```
+
 3. Instaliraj zavisnosti:
    npm install
 4. Pokreni razvojni server:
