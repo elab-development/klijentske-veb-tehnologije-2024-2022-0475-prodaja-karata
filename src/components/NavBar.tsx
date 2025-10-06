@@ -20,7 +20,7 @@ const NavBar: React.FC<NavBarProps> = ({ cartNum }) => {
           padding: "10px 20px",
         }}
       >
-        {/* Leva strana: Logo i korpa */}
+
         <div style={{ display: "flex", alignItems: "center", gap: "15px" }}>
           <Link to="/">
             <img
@@ -64,20 +64,17 @@ const NavBar: React.FC<NavBarProps> = ({ cartNum }) => {
 
       <footer className="bg-blue-200 text-gray-300 py-2 px-6 mt-6">
         <div className="max-w-6xl mx-auto flex flex-wrap justify-between items-center">
-          {/* Leva strana */}
           <div className="footer-left">
             <h2 className="text-lg font-semibold text-white">
               © 2025 Online prodaja karata
             </h2>
           </div>
 
-          {/* Sredina */}
           <div className="footer-middle flex gap-6 justify-center items-center">
             <span className="text-xs text-gray-800">Uslovi korišćenja</span>
             <span className="text-xs text-gray-800">Politika privatnosti</span>
           </div>
 
-          {/* Desna strana */}
           <div className="footer-right flex flex-col gap-1 text-sm">
             <p className="m-0">Email: support@karte.rs</p>
             <p className="m-0">Telefon: 061 172 00 91</p>
